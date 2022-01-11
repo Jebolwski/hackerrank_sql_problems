@@ -12,4 +12,13 @@ SELECT CASE WHEN A+B<=C OR A+C<=B OR C+B<=A THEN "Not A Triangle"
 
 select CONCAT(name,"(",LEFT(OCCUPATION,1),")") from occupations ORDER BY NAME
 
-select CONCAT("There are a total of ",COUNT(OCCUPATION)," ",LOWER(OCCUPATION),"s.") from occupations group by occupation order by count(occupation),occupation
+select CONCAT("There are a total of ",COUNT(OCCUPATION)," ",LOWER(OCCUPATION),"s.") 
+from occupations group by occupation order by count(occupation),occupation
+
+-- https://www.hackerrank.com/challenges/revising-aggregations-the-count-function
+
+SELECT COUNT(NAME) FROM CITY WHERE POPULATION>100000  
+
+-- https://www.hackerrank.com/challenges/revising-aggregations-sum
+
+SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT="CALIFORNIA"
