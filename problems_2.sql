@@ -22,3 +22,12 @@ SELECT COUNT(NAME) FROM CITY WHERE POPULATION>100000
 -- https://www.hackerrank.com/challenges/revising-aggregations-sum
 
 SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT="CALIFORNIA"
+
+
+-- https://www.hackerrank.com/challenges/revising-aggregations-the-average-function
+
+SELECT AVG(POPULATION) FROM CITY WHERE DISTRICT="California"
+
+-- https://www.hackerrank.com/challenges/average-population
+
+select round(avg(population)) from city
