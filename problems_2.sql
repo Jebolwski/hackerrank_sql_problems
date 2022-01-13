@@ -31,3 +31,16 @@ SELECT AVG(POPULATION) FROM CITY WHERE DISTRICT="California"
 -- https://www.hackerrank.com/challenges/average-population
 
 select round(avg(population)) from city
+
+-- https://www.hackerrank.com/challenges/what-type-of-triangle
+
+select case when A+B<=C or A+C<=C or B+C<=A then "Not A Triangle"
+       when A=B and B=C then "Equilateral"
+       when A<>B and B<>C and A<>C then "Scalene"
+       else "Isosceles"
+       end
+       from triangles;
+
+-- https://www.hackerrank.com/challenges/earnings-of-employees
+
+SELECT MONTHS*SALARY,COUNT(*) FROM EMPLOYEE GROUP BY MONTHS*SALARY DESC LIMIT 1;
