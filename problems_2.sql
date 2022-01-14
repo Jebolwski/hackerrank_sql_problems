@@ -44,3 +44,11 @@ select case when A+B<=C or A+C<=C or B+C<=A then "Not A Triangle"
 -- https://www.hackerrank.com/challenges/earnings-of-employees
 
 SELECT MONTHS*SALARY,COUNT(*) FROM EMPLOYEE GROUP BY MONTHS*SALARY DESC LIMIT 1;
+
+-- https://www.hackerrank.com/challenges/japan-population
+
+select sum(population) from city where COUNTRYCODE="JPN"
+
+-- https://www.hackerrank.com/challenges/population-density-difference
+
+select max(population)-min(population) from city
