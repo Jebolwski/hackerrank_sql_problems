@@ -52,3 +52,7 @@ select sum(population) from city where COUNTRYCODE="JPN"
 -- https://www.hackerrank.com/challenges/population-density-difference
 
 select max(population)-min(population) from city
+
+-- https://www.hackerrank.com/challenges/the-blunder
+
+select ceil(avg(salary) - avg(replace(salary,0,""))) from employees
