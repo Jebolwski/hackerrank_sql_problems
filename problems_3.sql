@@ -17,3 +17,11 @@ SELECT ROUND(LONG_W,4) FROM STATION WHERE 137.2345>LAT_N ORDER BY LAT_N DESC LIM
 -- https://www.hackerrank.com/challenges/weather-observation-station-16/
 
 SELECT ROUND(MIN(LAT_N),4) FROM STATION WHERE LAT_N>38.7780
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-17
+
+SELECT ROUND(LONG_W,4) FROM STATION WHERE LAT_N>38.7780 ORDER BY LAT_N LIMIT 1
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-18
+
+SELECT ROUND(ABS(MIN(LAT_N)-MAX(LAT_N))+ABS(MIN(LONG_W)-MAX(LONG_W)),4) FROM STATION
