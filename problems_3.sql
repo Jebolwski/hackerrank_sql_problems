@@ -33,3 +33,18 @@ SELECT ROUND(SQRT(POWER(MAX(LAT_N)-MIN(LAT_N),2)+ POWER(MAX(LONG_W) - MIN(LONG_W
 -- https://www.hackerrank.com/challenges/weather-observation-station-20
 
 SELECT ROUND(MEDIAN(LAT_N),4) FROM STATION
+
+-- https://www.hackerrank.com/challenges/asian-population
+
+SELECT SUM(City.Population) FROM City INNER JOIN Country ON City.CountryCode = Country.Code Where Country.Continent = 'Asia';
+
+-- https://www.hackerrank.com/challenges/african-cities/
+
+select City.Name FROM CITY INNER JOIN COUNTRY ON CITY.CountryCode=COUNTRY.Code WHERE country.CONTINENT='Africa';
+
+-- https://www.hackerrank.com/challenges/average-population-of-each-continent/
+
+SELECT Country.Continent, FLOOR(AVG(City.Population))
+FROM Country, City 
+WHERE Country.Code = City.CountryCode 
+GROUP BY Country.Continent ;
