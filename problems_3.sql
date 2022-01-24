@@ -58,3 +58,15 @@ UNION
 SELECT X,Y FROM FUNCTIONS F1 WHERE X = Y AND 
     ((SELECT COUNT(*) FROM FUNCTIONS WHERE X = F1.X AND Y = F1.X) > 1)
       ORDER BY X;
+
+--:= --!ASSIGNMENT
+-- https://www.hackerrank.com/challenges/draw-the-triangle-1/
+
+
+set @number = 21;
+select repeat('* ', @number := @number - 1) from information_schema.tables;
+
+--https://www.hackerrank.com/challenges/draw-the-triangle-2
+
+set @number=0;
+select repeat('* ',@number:=@number+1) from information_schema.tables where @number<20;
