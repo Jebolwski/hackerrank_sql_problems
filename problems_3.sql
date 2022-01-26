@@ -59,7 +59,7 @@ SELECT X,Y FROM FUNCTIONS F1 WHERE X = Y AND
     ((SELECT COUNT(*) FROM FUNCTIONS WHERE X = F1.X AND Y = F1.X) > 1)
       ORDER BY X;
 
---:= --!ASSIGNMENT
+--! := -> ASSIGNMENT
 -- https://www.hackerrank.com/challenges/draw-the-triangle-1/
 
 
@@ -81,3 +81,26 @@ WHERE WP.IS_EVIL = 0 AND W.COINS_NEEDED =
 (SELECT MIN(COINS_NEEDED) FROM WANDS AS X JOIN WANDS_PROPERTY AS Y ON (X.CODE = Y.CODE) 
 WHERE X.POWER = W.POWER AND Y.AGE = WP.AGE) 
 ORDER BY W.POWER DESC, WP.AGE DESC;
+
+-- https://www.hackerrank.com/challenges/full-score
+
+SELECT H.HACKER_ID, H.NAME
+FROM HACKERS H
+INNER JOIN SUBMISSIONS S
+ON H.HACKER_ID = S.HACKER_ID
+INNER JOIN CHALLENGES C
+ON S.CHALLENGE_ID = C.CHALLENGE_ID
+INNER JOIN DIFFICULTY D
+ON C.DIFFICULTY_LEVEL = D.DIFFICULTY_LEVEL
+WHERE S.SCORE = D.SCORE AND C.DIFFICULTY_LEVEL = D.DIFFICULTY_LEVEL
+GROUP BY H.HACKER_ID, H.NAME
+HAVING COUNT(S.HACKER_ID) > 1
+ORDER BY COUNT(S.HACKER_ID) DESC, S.HACKER_ID ASC;
+
+-- https://www.hackerrank.com/challenges/contest-leaderboard
+
+select h.hacker_id,h.name,sum(sscore)
+from Hackers h inner join (select s.hacker_id,max(score) as sscore from Submissions s group by s.hacker_id,s.challenge_id) st on h.hacker_id=st.hacker_id
+group by h.hacker_id,h.name
+having sum(sscore)>0
+order by sum(sscore) desc,h.hacker_id asc;
